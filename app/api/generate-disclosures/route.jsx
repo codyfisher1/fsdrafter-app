@@ -15,14 +15,19 @@ const chargeTokens = async (count)=>{
     const existingCredits = (user.unsafeMetadata?.computation_units)? parseInt(user.unsafeMetadata?.computation_units):0
     const cost = 10*count
     const balance = existingCredits - cost
-    console.log(`${cost} tokens charged to userId ${userId}`);
-    await clerkClient.users.updateUserMetadata(
-        userId,
-        {
-            unsafeMetadata: {
-                'computation_units': String(balance)
-            },
-        });
+
+    if (balance>0) {
+        console.log(`${cost} tokens charged to userId ${userId}`);
+        await clerkClient.users.updateUserMetadata(
+            userId,
+            {
+                unsafeMetadata: {
+                    'computation_units': String(balance)
+                },
+            });
+    } else {
+        throw new Error('not enough tokens')
+    }
 }
 
 export async function POST(req, res) {

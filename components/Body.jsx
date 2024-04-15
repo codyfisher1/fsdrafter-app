@@ -55,7 +55,7 @@ const Body = (props) => {
                     <div>
                         <SelectDisclosure setSelectedDisclosures={setSelectedDisclosures}/>
                     </div>
-                    {(creditBalance)?
+                    {(creditBalance!==0 && creditBalance>selectedDisclosures.length*10 )?
                         <Button
                             color="primary"
                             className="w-full mt-2"

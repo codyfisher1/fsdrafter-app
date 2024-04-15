@@ -4,10 +4,10 @@ const Footer = () => (
         <div className=" px-6 py-4 mt-8 border-t items-center justify-between flex">
             <div className="flex items-center gap-x-6 text-gray-400">
                 <p className="text-gray-500">fsdrafter</p>
-                <a href="/terms">
+                <a href="./terms">
                     Terms
                 </a>
-                <a href="/privacy">
+                <a href="./privacy">
                     Privacy
                 </a>
             </div>
