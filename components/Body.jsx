@@ -65,7 +65,6 @@ const Body = (props) => {
                             {(loading)?
                                 <span>Generating...</span>
                                 :
-                                <span>3. Generate Disclosures</span>
                                 <span>3. Generate Disclosures ({selectedDisclosures.length*10} tokens)</span>
                             }
                         </Button>
