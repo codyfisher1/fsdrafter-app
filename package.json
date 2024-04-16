@@ -23,6 +23,7 @@
     "openai": "^4.28.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-tailwindcss-select": "^1.8.5",
     "stripe": "^15.1.0"
   },
   "devDependencies": {
