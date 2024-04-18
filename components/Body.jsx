@@ -34,7 +34,6 @@ const Body = (props) => {
             }
             return res.json();
         }).then(data => {
-            console.log('API response data', data);
             setGeneratedDisclosures(data.output)
             refreshBalance()
         }).catch(err => console.error(err));

@@ -12,7 +12,6 @@ export default function Home() {
     React.useEffect(()=>{
         if (user?.unsafeMetadata){
             const balance = (user?.unsafeMetadata?.computation_units)? parseInt(user.unsafeMetadata?.computation_units):0
-            console.log(balance)
             setCreditBalance(balance)
         }
     },[user])
