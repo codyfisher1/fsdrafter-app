@@ -20,10 +20,12 @@ export async function POST(req) {
 
     let event;
     try {
-        event = stripe.webhooks.constructEvent(
+        event = await stripe.webhooks.constructEventAsync(
             raw_body,
             stripeSignature,
-            webhookSecret
+            webhookSecret,
+            undefined,
+            Stripe.createNodeCryptoProvider()
         );
     } catch (error) {
         console.error(error.message)
