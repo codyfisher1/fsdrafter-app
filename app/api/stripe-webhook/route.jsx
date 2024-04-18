@@ -25,7 +25,7 @@ export async function POST(req) {
             stripeSignature,
             webhookSecret,
             undefined,
-            Stripe.createNodeCryptoProvider()
+            Stripe.createSubtleCryptoProvider()
         );
     } catch (error) {
         console.error(error.message)
