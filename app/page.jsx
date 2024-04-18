@@ -5,6 +5,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useUser } from "@clerk/nextjs";
 
+export const runtime = 'edge'
+
 export default function Home() {
     const [creditBalance, setCreditBalance] = React.useState(null);
     const { user } = useUser();

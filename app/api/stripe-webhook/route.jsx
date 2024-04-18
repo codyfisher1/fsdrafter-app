@@ -6,6 +6,8 @@ import Stripe from "stripe";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
 
+export const runtime = 'edge'
+
 export async function POST(req) {
     if (req === null)
         throw new Error(`Missing userId or request`);

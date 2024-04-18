@@ -7,6 +7,8 @@ const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
 
+export const runtime = 'edge'
+
 const chargeTokens = async (count)=>{
     const { userId } = auth()
     if (!userId) throw new Error('No user')
