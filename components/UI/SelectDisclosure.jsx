@@ -69,7 +69,7 @@ export default function SelectDisclosure(params) {
                     onChange={handleSelection}
                     value={selected}
                     classNames={{
-                        base: "w-full max-h-[550px] overflow-scroll"
+                        base: "w-full max-h-[385px] overflow-scroll"
                     }}
                 >
                     <div className="flex flex-row flex-wrap">

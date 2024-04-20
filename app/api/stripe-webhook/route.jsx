@@ -48,7 +48,8 @@ export async function POST(req) {
             const userId = event.data.object.metadata?.userId
             const user = await clerkClient.users.getUser(userId)
             const existingCredits = (user.unsafeMetadata?.computation_units)? parseInt(user.unsafeMetadata?.computation_units):0
-            const purchasedCredits = event.data.object.amount_subtotal*100
+            // 10 tokens per 1000 cents (*.1)
+            const purchasedCredits = Math.round(event.data.object.amount_subtotal)*.1
             const balance = existingCredits + purchasedCredits
             console.log(`Payment successful for session ID: ${event.data.object.id} `);
             await clerkClient.users.updateUserMetadata(

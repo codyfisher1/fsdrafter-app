@@ -21,13 +21,11 @@ export default function Home() {
     const refreshBalance = ()=>{
         user.reload()
     }
-
-
     return (
-      <>
+      <div className='max-w-full'>
             <Navbar creditBalance={creditBalance}/>
             <Body creditBalance={creditBalance} refreshBalance={refreshBalance}/>
             <Footer/>
-      </>
+      </div>
   );
 }

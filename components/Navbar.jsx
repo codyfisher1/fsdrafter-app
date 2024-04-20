@@ -9,10 +9,10 @@ const Navbar = (props) => {
 
     return (
         <nav className="flex items-center justify-between flex-wrap">
-            <div className="flex items-center flex-shrink-0">
+            <div className="flex items-center flex-shrink-0 pt-2">
                 <h1 className="font-semibold text-3xl tracking-tight">__fsdrafter__</h1>
             </div>
-            <div className="flex space-x-5 items-center">
+            <div className="flex space-x-5 items-center pt-4 sm:pt-2">
                 <BalanceButton
                     creditBalance={creditBalance}
                 />

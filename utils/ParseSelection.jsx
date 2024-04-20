@@ -1,8 +1,9 @@
 
 
-export function ParseSelection(industries, disclosures){
+export function ParseSelection(industries, disclosures, framework){
     let chats = []
 
+    const framework_description = framework.description
     const industry_descriptions = industries.map((industry)=>industry.description)
     const industry_sentence = industry_descriptions.slice(0, -2).join(', ') +
         (industry_descriptions.slice(0, -2).length ? ', ' : '') +
@@ -19,7 +20,7 @@ export function ParseSelection(industries, disclosures){
                         },
                         {
                             "role": "user",
-                            "content": `Create an accounting disclosure regarding ${disclosure.topic.toLowerCase()} for a ${industry_sentence.toLowerCase()} Company`
+                            "content": `Create an accounting disclosure regarding ${framework_description} ${disclosure.topic.toLowerCase()} for a ${industry_sentence.toLowerCase()} Company`
                         }
                     ]
         }

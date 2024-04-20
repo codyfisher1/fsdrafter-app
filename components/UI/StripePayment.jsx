@@ -36,13 +36,13 @@ export default function BalanceButton(props) {
 
     return (
         <div className="flex justify-center items-center border-large rounded-xl">
-            <p className="mx-2 text-sm" size="small">
-                {creditBalance} tokens
+            <p className="mx-2 text-md">
+                {creditBalance} Tokens
             </p>
             <Button
-                className="rounded-l-none"
+                className="rounded-l-none text-md"
                 color="primary"
-                size="sm"
+                size="small"
                 onClick={handleCheckout}
             >
                 <span>Buy Tokens</span>

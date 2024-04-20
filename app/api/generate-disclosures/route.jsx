@@ -9,13 +9,14 @@ const openai = new OpenAI({
 
 export const runtime = 'edge'
 
-const chargeTokens = async (count)=>{
+const chargeUsage = async (count)=>{
     const { userId } = auth()
     if (!userId) throw new Error('No user')
 
     const user = await clerkClient.users.getUser(userId)
     const existingCredits = (user.unsafeMetadata?.computation_units)? parseInt(user.unsafeMetadata?.computation_units):0
-    const cost = 10*count
+    // one token for each disclosure
+    const cost = count
     const balance = existingCredits - cost
 
     if (balance>0) {
@@ -33,9 +34,8 @@ const chargeTokens = async (count)=>{
 }
 
 export async function POST(req, res) {
-    const {industries, disclosures} = await req.json();
-    console.log(industries,disclosures)
-    const messages = ParseSelection(industries, disclosures)
+    const {industries, disclosures, framework} = await req.json();
+    const messages = ParseSelection(industries, disclosures, framework)
 
     let api_response
 
@@ -48,7 +48,7 @@ export async function POST(req, res) {
         })
 
         const results = await Promise.all(promises)
-        await chargeTokens(messages.length)
+        await chargeUsage(messages.length)
         console.log('results done')
         const responses = results.map((response, index)=>
             `__${messages[index].chat_disclosure.topic}__\n\n${response.choices[0].message.content}\n`

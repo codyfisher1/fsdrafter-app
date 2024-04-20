@@ -3,6 +3,7 @@
 import React from "react";
 import SelectIndustry from "@/components/UI/SelectIndustry";
 import SelectDisclosure from "@/components/UI/SelectDisclosure";
+import SelectFramework from "@/components/UI/SelectFramework";
 import {Divider, Textarea, Button, Popover, PopoverTrigger, PopoverContent, ScrollShadow} from "@nextui-org/react";
 import { faLock } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -12,6 +13,7 @@ const Body = (props) => {
 
     const [selectedDisclosures, setSelectedDisclosures] = React.useState([])
     const [selectedIndustries, setSelectedIndustries] = React.useState()
+    const [selectedFramework, setSelectedFramework] = React.useState()
     const [loading, setLoading] = React.useState(false)
     const [generatedDisclosures, setGeneratedDisclosures] = React.useState("")
 
@@ -26,6 +28,7 @@ const Body = (props) => {
             body: JSON.stringify({
                 "industries":selectedIndustries,
                 "disclosures":selectedDisclosures,
+                "framework":selectedFramework,
             }),
         }).then(res => {
             setLoading(false)
@@ -46,41 +49,44 @@ const Body = (props) => {
     }
 
     return (
-        <div className="lg:p-0 p-4 mt-4">
+        <div className="lg:p-0 p-0 sm:p-4 mt-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
                 <div className="col-span-1">
-                    <h4 className="text-medium font-medium mb-1">1. Select Industries</h4>
+                    <h4 className="text-medium font-medium mb-1">1. Select Accounting Framework</h4>
+                    <SelectFramework setSelectedFramework={setSelectedFramework}/>
+                    <Divider className="mb-2 mt-4"/>
+                    <h4 className="text-medium font-medium mb-1">2. Select Industries</h4>
                     <SelectIndustry setSelectedIndustries={setSelectedIndustries}/>
-                    <Divider className="mb-2 mt-4" />
-                    <h4 className="text-medium font-medium mb-1">2. Select Disclosure Topics</h4>
+                    <Divider className="mb-2 mt-4"/>
+                    <h4 className="text-medium font-medium mb-1">3. Select Disclosure Topics</h4>
                     <div>
                         <SelectDisclosure setSelectedDisclosures={setSelectedDisclosures}/>
                     </div>
-                    {(creditBalance!==0 && creditBalance>selectedDisclosures.length*10 )?
+                    {(creditBalance !== 0 && creditBalance > selectedDisclosures.length * 10) ?
                         <Button
                             color="primary"
                             className="w-full mt-2"
                             onClick={handleClick}
-                            isDisabled={!(selectedDisclosures.length>0 && selectedIndustries)}
+                            isDisabled={!(selectedDisclosures.length > 0 && selectedIndustries)}
                         >
-                            {(loading)?
+                            {(loading) ?
                                 <span>Generating...</span>
                                 :
-                                <span>3. Generate Disclosures ({selectedDisclosures.length*10} tokens)</span>
+                                <span>3. Generate Disclosures ({selectedDisclosures.length} tokens)</span>
                             }
                         </Button>
-                    :
+                        :
                         <Button
                             className="w-full mt-2"
                             isDisabled
-                            startContent={<FontAwesomeIcon icon={faLock} />}
+                            startContent={<FontAwesomeIcon icon={faLock}/>}
                         >
                             Add Tokens
                         </Button>
                     }
                 </div>
                 <div className="col-span-1 lg:col-span-2">
-                    <div className="flex flex-row items-center mb-2">
+                <div className="flex flex-row items-center mb-2">
                         <h4 className="text-medium font-medium m-1">Generated Disclosures</h4>
                         {(!loading && generatedDisclosures.length > 0) && (
                             <Popover
@@ -105,7 +111,7 @@ const Body = (props) => {
                         isReadOnly
                         variant="bordered"
                         placeholder={(loading)?"Generating...":"Disclosures not generated yet."}
-                        maxRows="40"
+                        maxRows="36"
                         value={generatedDisclosures}
                     />
                 </div>
