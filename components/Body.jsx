@@ -39,7 +39,9 @@ const Body = (props) => {
         }).catch(err => console.error(err));
     }
 
-    const handleCopy = ()=>{
+    const handleCopy = (e)=>{
+        e.stopPropagation()
+        e.preventDefault()
         navigator.clipboard.writeText(generatedDisclosures)
     }
 
