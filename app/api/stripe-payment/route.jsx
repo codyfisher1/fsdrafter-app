@@ -10,6 +10,8 @@ export const runtime = 'edge'
 
 export async function POST(req) {
     const { userId } = auth();
+    if (!userId) throw new Error('No user')
+
     const user = await currentUser()
     const primaryEmail = user.emailAddresses.find((email)=>email.id===user.primaryEmailAddressId)
     const { quantity } = await req.json();
