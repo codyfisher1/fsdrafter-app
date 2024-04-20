@@ -39,10 +39,10 @@ const Body = (props) => {
         }).catch(err => console.error(err));
     }
 
-    const handleCopy = (e)=>{
+    const handleCopy = async (e)=>{
         e.stopPropagation()
         e.preventDefault()
-        navigator.clipboard.writeText(generatedDisclosures)
+        await navigator.clipboard.writeText(generatedDisclosures)
     }
 
     return (
@@ -91,7 +91,6 @@ const Body = (props) => {
                                     <Button
                                         size="sm"
                                         onClick={handleCopy}
-                                        onTouchStart={handleCopy}
                                     >
                                         Copy
                                     </Button>
