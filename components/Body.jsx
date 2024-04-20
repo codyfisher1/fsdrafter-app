@@ -41,12 +41,6 @@ const Body = (props) => {
 
     const handleCopy = ()=>{
         navigator.clipboard.writeText(generatedDisclosures)
-            .then(() => {
-                alert("Copied");
-            })
-            .catch(() => {
-                alert("Something went wrong");
-            });
     }
 
     return (
@@ -95,6 +89,7 @@ const Body = (props) => {
                                     <Button
                                         size="sm"
                                         onClick={handleCopy}
+                                        onTouchStart={handleCopy}
                                     >
                                         Copy
                                     </Button>
