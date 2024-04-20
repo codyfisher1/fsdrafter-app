@@ -62,12 +62,12 @@ const Body = (props) => {
                     <div>
                         <SelectDisclosure setSelectedDisclosures={setSelectedDisclosures}/>
                     </div>
-                    {(creditBalance !== 0 && creditBalance > selectedDisclosures.length * 10) ?
+                    {(creditBalance !== 0 && creditBalance > selectedDisclosures.length) ?
                         <Button
                             color="primary"
                             className="w-full mt-2"
                             onClick={handleClick}
-                            isDisabled={!(selectedDisclosures.length > 0 && selectedIndustries)}
+                            isDisabled={!(selectedDisclosures.length > 0 && selectedIndustries && selectedFramework)}
                         >
                             {(loading) ?
                                 <span>Generating...</span>
