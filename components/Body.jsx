@@ -41,6 +41,12 @@ const Body = (props) => {
 
     const handleCopy = ()=>{
         navigator.clipboard.writeText(generatedDisclosures)
+            .then(() => {
+                alert("Copied");
+            })
+            .catch(() => {
+                alert("Something went wrong");
+            });
     }
 
     return (
