@@ -36,7 +36,7 @@ export default function SelectIndustry(params) {
                 value={selected}
                 classNames={{
                     menuButton: ({ isDisabled }) => (
-                        "flex overflow-x-scroll text-sm text-gray-500 p-1 border-2 border-gray rounded-lg shadow-sm transition-all duration-300 focus:outline-none bg-white hover:border-gray-400 focus:border-black"
+                        "flex overflow-hidden text-sm text-gray-500 p-1 border-2 border-gray rounded-lg shadow-sm transition-all duration-300 focus:outline-none bg-white hover:border-gray-400 focus:border-black"
                     ),
                     tagItem: ()=> "bg-gray-200 border rounded-sm flex flex-row-reverse pr-1",
                     tagItemText:"truncate max-w-xs overflow-hidden",

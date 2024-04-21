@@ -4,15 +4,15 @@ import React from "react";
 import SelectIndustry from "@/components/UI/SelectIndustry";
 import SelectDisclosure from "@/components/UI/SelectDisclosure";
 import SelectFramework from "@/components/UI/SelectFramework";
-import {Divider, Textarea, Button, Popover, PopoverTrigger, PopoverContent, ScrollShadow} from "@nextui-org/react";
-import { faLock } from '@fortawesome/free-solid-svg-icons'
+import {Divider, Textarea, Button, Popover, PopoverTrigger, PopoverContent, Tooltip} from "@nextui-org/react";
+import { faLock, faCircleExclamation } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Body = (props) => {
     const {creditBalance, refreshBalance} = props
 
     const [selectedDisclosures, setSelectedDisclosures] = React.useState([])
-    const [selectedIndustries, setSelectedIndustries] = React.useState()
+    const [selectedIndustries, setSelectedIndustries] = React.useState([])
     const [selectedFramework, setSelectedFramework] = React.useState()
     const [loading, setLoading] = React.useState(false)
     const [generatedDisclosures, setGeneratedDisclosures] = React.useState("")
@@ -67,7 +67,7 @@ const Body = (props) => {
                             color="primary"
                             className="w-full mt-2"
                             onClick={handleClick}
-                            isDisabled={!(selectedDisclosures.length > 0 && selectedIndustries && selectedFramework)}
+                            isDisabled={!(selectedDisclosures.length > 0 && selectedIndustries.length > 0 && selectedFramework)}
                         >
                             {(loading) ?
                                 <span>Generating...</span>
@@ -88,6 +88,9 @@ const Body = (props) => {
                 <div className="col-span-1 lg:col-span-2">
                 <div className="flex flex-row items-center mb-2">
                         <h4 className="text-medium font-medium m-1">Generated Disclosures</h4>
+                        <Tooltip className="w-sm" showArrow={true} delay={500} content={<div>Notice: AI responses may occasionally lack coherence due to<br/> the complexity of language processing algorithms.</div>}>
+                            <FontAwesomeIcon className="far pr-4" color="gray" icon={faCircleExclamation}/>
+                        </Tooltip>
                         {(!loading && generatedDisclosures.length > 0) && (
                             <Popover
                                 placement="top"
@@ -106,6 +109,7 @@ const Body = (props) => {
                                 </PopoverContent>
                             </Popover>
                         )}
+
                     </div>
                     <Textarea
                         isReadOnly

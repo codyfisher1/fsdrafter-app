@@ -37,6 +37,7 @@ export default function SelectDisclosure(params) {
 
     const handleSelectedClear = ()=>{
         setSelected([])
+        setSelectedDisclosures([])
     }
 
     return (
@@ -69,7 +70,7 @@ export default function SelectDisclosure(params) {
                     onChange={handleSelection}
                     value={selected}
                     classNames={{
-                        base: "w-full max-h-[385px] overflow-scroll"
+                        base: "w-full max-h-[385px] overflow-y-scroll overflow-x-hidden"
                     }}
                 >
                     <div className="flex flex-row flex-wrap">
