@@ -14,7 +14,7 @@ const Terms = () => {
             <div className="lg:p-0 p-4 mt-4">
                 <h1 className="font-bold"> Terms of Service </h1>
                 <div>
-                    These Terms of Service ("Terms") govern your use of fs-drafter.com (the "Service"), provided by
+                    These Terms of Service ("Terms") govern your use of fsdrafter.com (the "Service"), provided by
                     Fishfin LLC ("we," "us," or "our"). By accessing or using the Service, you agree to be bound by
                     these Terms. If you do not agree to these Terms, please do not use the Service.
                     <br/>
@@ -52,7 +52,7 @@ const Terms = () => {
                     <br/>
                     <br/>
                     <h3 className="font-bold">3. Privacy</h3>
-                    Your privacy is important to us. Please review our Privacy Policy fs-drafter.com/privacy to
+                    Your privacy is important to us. Please review our Privacy Policy fsdrafter.com/privacy to
                     understand how we collect, use, and disclose information about you.
                     <br/>
                     <br/>
@@ -87,7 +87,7 @@ const Terms = () => {
                     <br/>
                     <br/>
                     <h3 className="font-bold">9. Contact Us</h3>
-                    If you have any questions about these Terms, please contact us at support@fs-drafter.com.
+                    If you have any questions about these Terms, please contact us at support@fsdrafter.com.
                 </div>
             </div>
         </>

@@ -7,7 +7,7 @@ import Head from "next/head";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "fs-drafter",
+  title: "fsdrafter",
   description: "Generate financial statement disclosure drafts",
 };
 

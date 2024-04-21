@@ -15,7 +15,7 @@ const Privacy = () => {
                 <div>
                     Fishfin LLC ("we," "us," or "our") is committed to protecting the privacy and security of your
                     personal information. This Privacy Policy explains how we collect, use, and disclose information
-                    about you when you use our website fs-drafter.com (the "Service").
+                    about you when you use our website fsdrafter.com (the "Service").
                     <br/>
                     <br/>
                     <h3 className="font-bold">1. Information We Collect</h3>
@@ -84,7 +84,7 @@ const Privacy = () => {
                     <br/>
                     <br/>
                     <h3 className="font-bold">8. Contact Us</h3>
-                    If you have any questions about this Privacy Policy, please contact us at support@fs-drafter.com.
+                    If you have any questions about this Privacy Policy, please contact us at support@fsdrafter.com.
                     <br/>
                     <br/>
                 </div>
