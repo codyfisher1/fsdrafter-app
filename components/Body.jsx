@@ -89,7 +89,7 @@ const Body = (props) => {
                 <div className="flex flex-row items-center mb-2">
                         <h4 className="text-medium font-medium m-1">Generated Disclosures</h4>
                         <Tooltip className="w-sm" showArrow={true} delay={500} content={<div>Notice: AI responses may occasionally lack coherence due to<br/> the complexity of language processing algorithms.</div>}>
-                            <FontAwesomeIcon className="far pr-4" color="gray" icon={faCircleExclamation}/>
+                            <FontAwesomeIcon className="far pr-4 max-h-3" color="gray" icon={faCircleExclamation}/>
                         </Tooltip>
                         {(!loading && generatedDisclosures.length > 0) && (
                             <Popover
