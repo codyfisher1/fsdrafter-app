@@ -13,8 +13,18 @@ export default function Home() {
 
     React.useEffect(()=>{
         if (user?.unsafeMetadata){
-            const balance = (user?.unsafeMetadata?.computation_units)? parseInt(user.unsafeMetadata?.computation_units):0
-            setCreditBalance(balance)
+            if (user?.unsafeMetadata?.computation_units) {
+                const balance = parseInt(user.unsafeMetadata.computation_units)
+                setCreditBalance(balance)
+            } else {
+                user.update({
+                    unsafeMetadata: {
+                        'computation_units': 10
+                    },
+                }).then(()=>{
+                    user.reload()
+                })
+            }
         }
     },[user])
 
