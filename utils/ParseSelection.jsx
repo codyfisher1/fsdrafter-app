@@ -16,11 +16,11 @@ export function ParseSelection(industries, disclosures, framework){
             "chat_text": [
                         {
                             "role": "system",
-                            "content": "Cody is a chat bot that specialized in writing accounting financial statement disclosure footnotes."
+                            "content": "FsdrafterAI is a bot that is specialized in writing accounting financial statement disclosure footnotes."
                         },
                         {
                             "role": "user",
-                            "content": `Create an accounting disclosure regarding ${framework_description} ${disclosure.topic.toLowerCase()} for a ${industry_sentence.toLowerCase()} Company`
+                            "content": `Create a ${framework_description} accounting disclosure regarding ${disclosure.topic.toLowerCase()} for a company in the ${industry_sentence.toLowerCase()} industry`
                         }
                     ]
         }
