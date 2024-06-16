@@ -19,7 +19,7 @@ const chargeUsage = async (count)=>{
     const cost = count
     const balance = existingCredits - cost
 
-    if (balance>0) {
+    if (balance>=0) {
         console.log(`${cost} tokens charged to userId ${userId}`);
         await clerkClient.users.updateUserMetadata(
             userId,

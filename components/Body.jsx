@@ -62,7 +62,7 @@ const Body = (props) => {
                     <div>
                         <SelectDisclosure setSelectedDisclosures={setSelectedDisclosures}/>
                     </div>
-                    {(creditBalance !== 0 && creditBalance > selectedDisclosures.length) ?
+                    {(creditBalance !== 0 && creditBalance >= selectedDisclosures.length) ?
                         <Button
                             color="primary"
                             className="w-full mt-2"
